@@ -27,4 +27,8 @@ public class AppConstant {
     public static final  String DEFAULT_SORT_BY= "name";
 
     public static final String SORT_DIR="asr";
+
+    public static final  String CATEGORY_NOT_FOUND = "Category not found with this Id";
+
+    public  static final String CATEGORY_DELETE="category delete category Successfully";
 }

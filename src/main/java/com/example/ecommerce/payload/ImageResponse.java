@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 public class ImageResponse {
 
     private String imagaeName;
+
     private String message;
 
     private boolean success;

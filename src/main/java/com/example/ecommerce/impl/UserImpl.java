@@ -1,9 +1,9 @@
 package com.example.ecommerce.impl;
 
-import com.example.ecommerce.helper.Helper;
 import com.example.ecommerce.cofig.AppConstant;
 import com.example.ecommerce.entity.User;
 import com.example.ecommerce.exception.ResourceNotFoundException;
+import com.example.ecommerce.helper.Helper;
 import com.example.ecommerce.payload.PageableResponse;
 import com.example.ecommerce.payload.UserDto;
 import com.example.ecommerce.repository.UserRespository;
@@ -50,7 +50,6 @@ public class UserImpl implements UserService {
 
     @Override
     public UserDto updateUser(UserDto userDto, Long userId) {
-
 
         log.info("Initiating DAO Call for Update User");
 
