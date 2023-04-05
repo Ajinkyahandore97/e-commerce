@@ -2,3 +2,10 @@
 2023-04-05 11:44:11,696 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.7.10, Spring v5.3.26
 2023-04-05 11:44:11,700 INFO  SpringApplication:637 - [] The following 1 profile is active: "dev"
 2023-04-05 11:46:02,337 INFO  StartupInfoLogger:61 - [] Started ECommerceApplication in 116.267 seconds (JVM running for 134.857)
+2023-04-05 19:46:28,357 INFO  StartupInfoLogger:55 - [] Starting ECommerceApplication using Java 17.0.6 on DESKTOP-UFTPRTL with PID 11244 (C:\Users\Acer\Desktop\E-commerce\e-commerce\target\classes started by Acer in C:\Users\Acer\Desktop\E-commerce\e-commerce)
+2023-04-05 19:46:28,372 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-04-05 19:46:28,375 INFO  SpringApplication:637 - [] The following 1 profile is active: "dev"
+2023-04-05 20:02:59,036 INFO  StartupInfoLogger:55 - [] Starting ECommerceApplication using Java 17.0.6 on DESKTOP-UFTPRTL with PID 8592 (C:\Users\Acer\Desktop\E-commerce\e-commerce\target\classes started by Acer in C:\Users\Acer\Desktop\E-commerce\e-commerce)
+2023-04-05 20:02:59,071 DEBUG StartupInfoLogger:56 - [] Running with Spring Boot v2.7.10, Spring v5.3.26
+2023-04-05 20:02:59,074 INFO  SpringApplication:637 - [] The following 1 profile is active: "dev"
+2023-04-05 20:05:32,640 INFO  StartupInfoLogger:61 - [] Started ECommerceApplication in 158.345 seconds (JVM running for 171.562)

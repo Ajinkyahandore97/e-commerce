@@ -17,9 +17,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
 @Slf4j
 public class ProductImpl implements ProductService {
@@ -113,30 +110,40 @@ public class ProductImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getAllLive() {
+    public PageableResponse<ProductDto> searchByTitle(String title, int pageNumber, int pageSize, String sortBy, String sortDir) {
 
-        log.info(" Initiating DAO Call for Get All Live Product ");
+        log.info("Initiating DAO Call for get All Product");
 
-        List<Product> byLiveTrue = this.productRepo.findByLiveTrue();
+        Sort sort = (sortDir.equalsIgnoreCase("asc")) ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
 
-        List<ProductDto> collect = byLiveTrue.stream().map(live -> this.modelMapper.map(live, ProductDto.class)).collect(Collectors.toList());
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
-        log.info(" Completing DAO Call for Get All Live Product ");
+        Page<Product> allByTitleContaining = this.productRepo.findAllByTitleContaining(title, pageable);
 
-        return collect;
+        log.info("Completing DAO Call for get All Product");
+
+        PageableResponse<ProductDto> pageableResponse = Helper.getPageableResponse(allByTitleContaining, ProductDto.class);
+
+        return pageableResponse;
     }
 
     @Override
-    public List<ProductDto> searchByTitle(String title) {
+    public PageableResponse<ProductDto> getAllLive(int pageNumber, int pageSize, String sortBy, String sortDir) {
 
-        log.info(" Initiating DAO Call for Get Product by {} ", title);
+        log.info("Initiating DAO Call for get Product");
 
-        List<Product> allByTitleContaining = this.productRepo.findAllByTitleContaining(title);
+        Sort sort = (sortDir.equalsIgnoreCase("asc")) ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
 
-        List<ProductDto> collect = allByTitleContaining.stream().map(product -> this.modelMapper.map(product, ProductDto.class)).collect(Collectors.toList());
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
-        log.info(" Completing DAO Call for Get Product by {} ", title);
+        Page<Product> byLiveTrue = this.productRepo.findByLiveTrue(pageable);
 
-        return collect;
+        log.info("Completing DAO Call for get All Product  ");
+
+        PageableResponse<ProductDto> pageableResponse1 = Helper.getPageableResponse(byLiveTrue, ProductDto.class);
+
+        return pageableResponse1;
     }
+
+
 }

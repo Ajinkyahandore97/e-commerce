@@ -3,8 +3,6 @@ package com.example.ecommerce.service;
 import com.example.ecommerce.payload.PageableResponse;
 import com.example.ecommerce.payload.ProductDto;
 
-import java.util.List;
-
 public interface ProductService {
 
 
@@ -18,9 +16,8 @@ public interface ProductService {
 
     ProductDto getSingleProduct(Long productId);
 
-    List<ProductDto> getAllLive();
 
-    List<ProductDto> searchByTitle(String title);
+    PageableResponse<ProductDto> searchByTitle(String title, int pageNumber, int pageSize, String sortBy, String sortDir);
 
-
+    PageableResponse<ProductDto> getAllLive(int pageNumber, int pageSize, String sortBy, String sortDir);
 }
