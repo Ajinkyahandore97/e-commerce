@@ -65,7 +65,7 @@ public class CategoryImpl  implements CategoryService {
     @Override
     public void deleteCategory(Long categoryId) {
 
-        log.info("Initiating DAO Call for Delete Category");
+        log.info("Initiating DAO Call for Delete Category  with categoryId {} ", categoryId);
 
         Category category = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
 
@@ -73,7 +73,7 @@ public class CategoryImpl  implements CategoryService {
 
         categoryRepo.save(category);
 
-        log.info("Completing DAO Call for Delete Category");
+        log.info("Completing DAO Call for Delete Category with CategoryId {} ", categoryId);
     }
 
     @Override
@@ -97,11 +97,11 @@ public class CategoryImpl  implements CategoryService {
     @Override
     public CategoryDto getSingleCategory(Long categoryId) {
 
-        log.info(" Initiating DAO Call for get Single Category ");
+        log.info(" Initiating DAO Call for get Single Category with {}  ", categoryId);
 
         Category category = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstant.CATEGORY_NOT_FOUND));
 
-        log.info("Completing DAO Call for get Single Category");
+        log.info("Completing DAO Call for get Single Category with {} ", categoryId);
 
         return this.modelMapper.map(category , CategoryDto.class);
     }
